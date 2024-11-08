@@ -146,4 +146,13 @@ public class EmployeeController {
         employeeService.update(employeeDTO);
         return Result.success();
     }
+
+    /**
+     * 测试
+     * @return
+     */
+    public String f(){
+        return null;
+    }
+
 }
