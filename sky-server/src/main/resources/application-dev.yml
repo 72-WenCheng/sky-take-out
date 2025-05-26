@@ -8,6 +8,4 @@ sky:
     password: root
   alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-id: ${ALIYUN_ACCESS_KEY_ID}
-    access-key-secret: ${ALIYUN_ACCESS_KEY_SECRET}
     bucket-name: skytakeout-maven
