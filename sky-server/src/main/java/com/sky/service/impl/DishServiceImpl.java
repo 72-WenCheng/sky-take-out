@@ -16,6 +16,7 @@ import com.sky.result.PageResult;
 import com.sky.service.DishService;
 import com.sky.vo.DishVO;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.jdbc.SQL;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -90,10 +91,15 @@ public class DishServiceImpl implements DishService {
         }
 
         //删除菜品
-        for (Long id : ids) {
-            dishMapper.deleteById(id);
-            //删除口味
-            dishFlavorMapper.deleteByDishId(id);
-        }
+//        for (Long id : ids) {
+//            dishMapper.deleteById(id);
+//            //删除口味
+//            dishFlavorMapper.deleteByDishId(id);
+//        }
+
+        //优化删除菜品和口味
+        //sql: delete from dish where id in (?,?,?)
+        dishMapper.deleteByIds(ids);
+        dishFlavorMapper.deleteByDishIds(ids);
     }
 }
